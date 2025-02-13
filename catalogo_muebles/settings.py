@@ -124,6 +124,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#autenticacion login
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Asegura que esta línea esté presente
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
