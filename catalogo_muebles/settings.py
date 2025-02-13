@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SESSION_COOKIE_DOMAIN = 'https://mueblesemae.onrender.com'
+SESSION_COOKIE_DOMAIN = '.onrender.com'
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')    #cambiam
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ  #variable de entorno django-render
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mueblesemae.onrender.com', 'https://mueblesemae.onrender.com']
 #variable de entorno render-django ip
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
