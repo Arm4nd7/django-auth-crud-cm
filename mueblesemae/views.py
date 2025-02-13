@@ -3,8 +3,12 @@ from django.template import loader
 from django.shortcuts import redirect, render
 from .models import Mueble
 from .models import Cliente
+from .models import Compra
+
 from mueblesemae.forms import MuebleForm
 from mueblesemae.forms import ClienteForm
+from mueblesemae.forms import CompraForm
+
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -19,6 +23,29 @@ def index(request):
         'muebles': muebles,
         }, request))
 
+##CATEGORIA ORGANIZACION
+def categoria_organizacion(request):
+    muebles = Mueble.objects.all()
+    template = loader.get_template('categoria_organizacion.html')
+    return HttpResponse(template.render({
+        'muebles': muebles,
+        }, request))
+
+##CATEGORIA HOOL
+def categoria_hool(request):
+    muebles = Mueble.objects.all()
+    template = loader.get_template('categoria_hool.html')
+    return HttpResponse(template.render({
+        'muebles': muebles,
+        }, request))
+
+##CATEGORIA CONFORT
+def categoria_confort(request):
+    muebles = Mueble.objects.all()
+    template = loader.get_template('categoria_confort.html')
+    return HttpResponse(template.render({
+        'muebles': muebles,
+        }, request))
 
 
 def mueble(request, mueble_id):
@@ -49,6 +76,7 @@ def cliente_details(request, cliente_id):
     return HttpResponse(template.render(context, request))
 
 #CLIENTE
+@login_required
 def add_cliente(request):
     if request.method == "POST": 
         form = ClienteForm(request.POST, request.FILES)
@@ -81,7 +109,6 @@ def delete_cliente(request, cliente_id):
 def add_mueble(request):
     if request.method == "POST": 
         form = MuebleForm(request.POST, request.FILES)
-        
         if form.is_valid():
             form.save()
             return redirect('mueblesemae:index')
@@ -104,6 +131,37 @@ def delete_mueble(request, mueble_id):
     mueble =  Mueble.objects.get(id = mueble_id)
     mueble.delete()
     return redirect('mueblesemae:index')
+
+
+#COMPRA- listado de compra
+def listar_compras(request):
+    compras = Compra.objects.all().order_by('-fecha')
+    template = loader.get_template('lista_compras.html')
+    return HttpResponse(template.render({'compras': compras}, request))
+
+
+#COMPRA- nueva compra
+def ingresar_compra(request):
+    if request.method == 'POST':
+        form = CompraForm(request.POST)
+        if form.is_valid():
+            compra = form.save()
+            compra.calcular_total()
+            return redirect('mueblesemae:listar_compras')
+    else:
+        form = CompraForm()
+    
+    return render(request, 'ingresar_compra.html', {'form': form})
+
+#COMPRA - DETALLE
+def detalle_compra(request, cliente_id, compra_id):
+    cliente = Cliente.objects.get(id=cliente_id)
+    compra = Compra.objects.get(id=compra_id, cliente=cliente)  # Obtiene solo la compra específica
+    return render(request, 'detalle_compra.html', {
+        'cliente': cliente,
+        'compra': compra,
+    })
+
 
 
 
