@@ -84,7 +84,7 @@ DATABASES = {
     #database de djang-render POSTGRES
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:123456789@localhost:5432/catalogo_muebles',
+        default='postgresql://postgres:123456789@localhost:5432/mueblesemae',
         conn_max_age=600,   
     )
     
