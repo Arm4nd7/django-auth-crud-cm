@@ -76,7 +76,7 @@ def cliente_details(request, cliente_id):
     return HttpResponse(template.render(context, request))
 
 #CLIENTE
-@login_required
+# @login_required
 def add_cliente(request):
     if request.method == "POST": 
         form = ClienteForm(request.POST, request.FILES)
@@ -105,7 +105,7 @@ def delete_cliente(request, cliente_id):
 
 
 #MUEBLE
-@login_required
+# @login_required
 def add_mueble(request):
     if request.method == "POST": 
         form = MuebleForm(request.POST, request.FILES)
