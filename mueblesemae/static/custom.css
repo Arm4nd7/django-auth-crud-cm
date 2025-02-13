@@ -1,0 +1,137 @@
+
+.container{
+    width: 100%;
+    max-width: 1200px;  /* Limita el tamaño máximo */
+    margin: 0 auto;
+}
+.header{
+    position: fixed;
+    height: 16rem;
+    z-index: 1030;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+.main{
+    padding-top: calc(17rem + 1rem); 
+}
+.logo{
+    width: 100%;    /* Mantiene la proporción */
+    position: sticky;
+    max-width: 3000px;
+    height: auto;
+    max-height: 12rem;
+    padding: 0rem;
+} 
+
+ul.lista-h{
+    margin-bottom: 0;
+    list-style: none;
+    
+}
+
+div.barra.p-0 ul li{
+    display: inline-block;
+    padding: 0rem 1rem;
+    margin-bottom: 0;
+
+}
+div.barra.p-0 ul li :hover{
+    background: rgba(255, 255, 255, 0.629);
+    border-radius: 0.4rem;
+
+}
+
+.footer{
+    background: #ddb94d24;
+    padding: 0.4rem 0;
+    text-align: center;
+    margin-top: 6rem;
+}
+.header, .navbar, div.barra.p-0{
+    background-color: #e4b46a;
+    border-radius: 0.9rem;
+    
+
+}
+.table thead.atributes{
+    background: #0000002e;
+}
+.navbar{
+    background-color: #f3e7c061;
+    height: 4rem;
+    text-align: center;
+}
+i.fa-solid.fa-bars{
+    font-size: 2rem;
+}
+i.fa-regular.fa-id-card{
+    font-size: 1.7rem;
+}
+
+
+/* Estilo base */
+html {
+    font-size: 16px; /* Tamaño base de 1rem */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fuente moderna y legible */
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #333; /* Color de texto neutral */
+    font-size: clamp(14px, 2.5vw, 18px); /* Escalado fluido */
+    margin: 0;
+}
+
+/* Encabezados */
+h1 {
+    font-size: clamp(2rem, 4vw, 3rem); /* Escalado fluido para encabezados */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Texto normal */
+p {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    margin-bottom: 1.5rem;
+}
+
+/* Media queries adicionales para ajustes específicos */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem; /* Ajuste para móviles pequeños */
+    }
+    h1, h2, h3 {
+        line-height: 1.3; /* Aumenta la legibilidad en pantallas pequeñas */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        font-size: 1rem; /* Ajuste para tablets */
+    }
+    h1, h2, h3 {
+        line-height: 1.4;
+    }
+}
+
+@media (min-width: 1025px){
+    body {
+        font-size: 1.125rem; /* Ajuste para escritorios */
+    }
+    h1, h2, h3 {
+        line-height: 1.5;
+    }
+}

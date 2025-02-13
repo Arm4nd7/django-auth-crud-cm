@@ -1,0 +1,22 @@
+databases:
+  - name: catalogo_muebles
+    plan: free
+    databaseName: mueblesemae
+    user: mueblesemae
+
+services:
+  - type: web
+    plan: free
+    name: mueblesemae
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn mueblesemae.asgi:application -k uvicorn.workers.UvicornWorker"    
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mueblesemaedb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
