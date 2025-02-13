@@ -76,32 +76,32 @@
 
 
                             <li>
-                                {% if user.is_authenticated %}
+                                {% comment %} {% if user.is_authenticated %} {% endcomment %}
                                 <a class="nav-link" href="{% url "mueblesemae:add_mueble" %}">Añadir mueble
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </a>
-                                {% endif %}
+                                {% comment %} {% endif %} {% endcomment %}
                             </li>
                             <li>
-                                {% if user.is_authenticated %}
+                                {% comment %} {% if user.is_authenticated %} {% endcomment %}
                                 <a class="nav-link" href="{% url "mueblesemae:add_cliente" %}">Añadir cliente
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </a>
-                                {% endif %}
+                                {% comment %} {% endif %} {% endcomment %}
                             </li>
                         </ul>
                     </div>
                 </div>
                 <!--login-->
-                {% if user.is_authenticated %}
+                
                 <a class="nav-link" href="{% url "logout" %}">Salir
                     <i class="fa-solid fa-right-from-bracket"></i>
                 </a>
-                {% else %}
+                
                 <a class="nav-link" href="{% url "mueblesemae:login" %}">Ingresar
                     <i class="fa-solid fa-right-to-bracket"></i>
                 </a>
-                {% endif %}
+               
             </nav>                
         <!-- </div> -->
     </header> 

@@ -22,7 +22,7 @@
                         <i class="fa-solid fa-eye"></i> <!--icono-->
                     </a>
                     <!--icono EDITAR-->
-                    {% if user.is_authenticated %}
+                    {% comment %} {% if user.is_authenticated %} {% endcomment %}
                         <a href="/edit_cliente/{{cliente.id}}" class="btn btn-primary">
                             <i class="fa-solid fa-pen-fancy"></i>
                         </a>
@@ -33,7 +33,7 @@
                             </a>
                         </section>
 
-                        {% endif %} 
+                        {% comment %} {% endif %}  {% endcomment %}
                         <section>
                             <button type="button"> Mostrar </button>
                         </section>

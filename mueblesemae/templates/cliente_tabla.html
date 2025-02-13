@@ -20,7 +20,7 @@
                             <td>{{cliente.name}}</td>
                             <td>{{cliente.dni}}</td>
                             <td>
-                                {% if user.is_authenticated %}
+                                {% comment %} {% if user.is_authenticated %} {% endcomment %}
                                 <a href="/edit_cliente/{{cliente.id}}" class="btn btn-primary">
                                     <i class="fa-solid fa-pen-fancy"></i>
                                 </a>
@@ -28,9 +28,9 @@
                                 <a href="/delete_cliente/{{cliente.id}}" class="btn btn-danger">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </a>
-                                {%else%}
+                                {% comment %} {%else%} {% endcomment %}
                                     <p>no disponible</p>
-                                {% endif %} 
+                                {% comment %} {% endif %}  {% endcomment %}
                             </td>
                         </tr>
                     {% empty %}
