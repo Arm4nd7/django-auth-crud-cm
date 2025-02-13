@@ -80,14 +80,24 @@ WSGI_APPLICATION = 'catalogo_muebles.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    #database de djang-render POSTGRES
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://postgres:123456789@localhost:5432/mueblesemae',
-        conn_max_age=600,   
-    )
+# DATABASES = {
+#     #database de djang-render POSTGRES
+#     'default': dj_database_url.config(
+#         # Replace this value with your local database's connection string.
+#         default='postgresql://postgres:123456789@localhost:5432/mueblesemae',
+#         conn_max_age=600,   
+#     )
     
+# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mueblesemae',
+        'USER': 'postgres',
+        'PASSWORD': '123456789',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 
