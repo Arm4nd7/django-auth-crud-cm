@@ -7,7 +7,7 @@ databases:
 services:
   - type: web
     plan: free
-    name: mueblesemae
+    name: catalogo_muebles
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn mueblesemae.asgi:application -k uvicorn.workers.UvicornWorker"    
